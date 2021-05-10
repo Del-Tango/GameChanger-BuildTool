@@ -1,0 +1,80 @@
+#!/bin/bash
+#
+# Regards, the Alveare Solutions society.
+#
+# GAME CHANGER
+
+declare -A GC_DEFAULT
+declare -A GC_LIB
+declare -A GC_SOURCE
+declare -A GC_CARGO
+
+# [ NOTE ]: Absolute directory path the current file is in.
+GC_DIRECTORY="$(
+    cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd
+)"
+CONF_FILE_PATH="$GC_DIRECTORY/conf/game-changer.conf"
+
+if [ ! -f "$CONF_FILE_PATH" ]; then
+    echo "[ WARNING ]: Config file ($CONF_FILE_PATH) not found."
+    exit 1
+else
+    echo "[ DEBUG ]: Sourcing config file ($CONF_FILE_PATH)"
+    source "$CONF_FILE_PATH"
+fi
+
+for script in ${!GC_SOURCE[@]}; do
+    source ${GC_SOURCE[$script]}
+    if [ $? -ne 0 ]; then
+        echo "[ NOK ]: Something went wrong."\
+            "Could not load ($script) script."
+    else
+        echo "[ OK ]: Successfully loaded ($script) script."
+    fi
+done
+
+for library in ${!GC_LIB[@]}; do
+    source ${GC_LIB[$library]}
+    if [ $? -ne 0 ]; then
+        echo "[ NOK ]: Something went wrong."\
+            "Could not load ($library) library."
+    else
+        echo "[ OK ]: Successfully loaded ($library) library."
+    fi
+done
+
+# INIT
+
+function init_game_changer_cli () {
+    project_setup
+    display_banner
+    init_menu "MainController"
+    return $?
+}
+
+function init_game_changer_util () {
+    ${GC_CARGO['game-changer']} $@
+    return $?
+}
+
+# MISCELLANEOUS
+
+for opt in "$@"
+do
+    case "$opt" in
+        '--CLI')
+            GC_RUNNING_MODE='CLI'
+            ;;
+    esac
+done
+
+case "$GC_RUNNING_MODE" in
+    'CLI')
+        init_game_changer_cli
+        ;;
+    *)
+        init_game_changer_util
+        ;;
+esac
+
+exit $?

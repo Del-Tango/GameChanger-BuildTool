@@ -38,6 +38,7 @@ function display_formatted_settings () {
     display_formatted_setting_keep_c_code_flag
     display_formatted_setting_debug_exec_flag
     display_formatted_setting_relax_security_flag
+    display_formatted_setting_safety_flag
     display_formatted_setting_untraceable
     display_formatted_setting_busybox
     display_formatted_setting_hardened
@@ -50,6 +51,12 @@ function display_project_settings () {
 }
 
 # GENERAL
+
+function display_formatted_setting_safety_flag() {
+    FLAG=`format_flag_colors "${MD_SAFETY}"`
+    echo "[ ${CYAN}Safety FLAG${RESET}         ]: ${FLAG:-${RED}Unspecified}${RESET}"
+    return $?
+}
 
 function display_formatted_setting_expiration_date () {
     if [ "${MD_DEFAULT['compose']}" != 'off' ]; then

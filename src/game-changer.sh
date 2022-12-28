@@ -26,12 +26,12 @@ OUTPUT_FILE_PATH='untitled'
 # Flags
 VERBOSE_FLAG='off'
 COMPOSE_FLAG='off'
-SETUID_FLAG='on'
+SETUID_FLAG='off'
 KEEP_C_SOURCE_CODE_FLAG='off'
 DEBUG_EXEC_CALLS_FLAG='off'
 RELAX_SECURITY_FLAG='off'
-UNTRACEABLE_BINARY_FLAG='on'
-HARDENED_BINARY_FLAG='on'
+UNTRACEABLE_BINARY_FLAG='off'
+HARDENED_BINARY_FLAG='off'
 COMPILE_FOR_BUSYBOX_FLAG='off'
 
 # FORMATTERS
@@ -54,19 +54,19 @@ function format_shell_to_c_arguments () {
     if [[ "$SETUID" == 'on' ]]; then
         ARGUMENTS=( ${ARGUMENTS[@]} "-S" )
     fi
-    if [[ "DEBUG_EXEC_CALLS_FLAG" == 'on' ]]; then
+    if [[ "$DEBUG_EXEC_CALLS_FLAG" == 'on' ]]; then
         ARGUMENTS=( ${ARGUMENTS[@]} "-D" )
     fi
-    if [[ "RELAX_SECURITY_FLAG" == 'on' ]]; then
+    if [[ "$RELAX_SECURITY_FLAG" == 'on' ]]; then
         ARGUMENTS=( ${ARGUMENTS[@]} "-r" )
     fi
-    if [[ "UNTRACEABLE_BINARY_FLAG" == 'on' ]]; then
+    if [[ "$UNTRACEABLE_BINARY_FLAG" == 'on' ]]; then
         ARGUMENTS=( ${ARGUMENTS[@]} "-U" )
     fi
-    if [[ "HARDENED_BINARY_FLAG" == 'on' ]]; then
+    if [[ "$HARDENED_BINARY_FLAG" == 'on' ]]; then
         ARGUMENTS=( ${ARGUMENTS[@]} "-H" )
     fi
-    if [[ "COMPILE_FOR_BUSYBOX_FLAG" == 'on' ]]; then
+    if [[ "$COMPILE_FOR_BUSYBOX_FLAG" == 'on' ]]; then
         ARGUMENTS=( ${ARGUMENTS[@]} "-B" )
     fi
     echo ${ARGUMENTS[@]}
@@ -160,6 +160,11 @@ function action_compile () {
         shc ${FORMATTED_ARGUMENTS[@]}
     else
         shc ${FORMATTED_ARGUMENTS[@]} &> /dev/null
+    fi
+    local EXIT_CODE=$?
+    if [ $EXIT_CODE -ne 0 ]; then
+        echo "[ ERROR ]: Failed to compile shell script! Exit (${EXIT_CODE})"
+        return $EXIT_CODE
     fi
     if [[ "$KEEP_C_SOURCE_CODE_FLAG" == 'off' ]]; then
         remove_c_source_file

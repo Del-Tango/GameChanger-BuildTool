@@ -97,7 +97,7 @@ function action_set_compose_directories () {
     if [[ "$CDIRS" == '-' ]]; then
         CDIRS=''
     fi
-    set_compose_directory_paths "$FILE_PATH"
+    set_compose_directory_paths "$CDIRS"
     EXIT_CODE=$?
     echo; if [ $EXIT_CODE -ne 0 ]; then
         nok_msg "Something went wrong."\

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 #
 # Regards, the Alveare Solutions society.
 #
@@ -79,9 +79,9 @@ function merge_files () {
     local TARGET_PATH=$1
     local SOURCE_PATH=$2
     CONTENT_TAG="# --- Composed from file - $SOURCE_PATH ---"
-    CONTENT="`cat "$SOURCE_PATH" | grep -v '#!/'`"
-    sed -i "2 s|^|$CONTENT\n|" "$TARGET_PATH" #&> /dev/null
-    sed -i "2 s|^|$CONTENT_TAG\n|" "$TARGET_PATH" #&> /dev/null
+    CONTENT="`cat "$SOURCE_PATH" | grep -v '#!/' | xargs`"
+    sed -i -e "2 s|^|${CONTENT}\n|" "$TARGET_PATH" #&> /dev/null
+    sed -i -e "2 s|^|${CONTENT_TAG}\n|" "$TARGET_PATH" #&> /dev/null
     return $?
 }
 
@@ -116,6 +116,7 @@ function create_compose_file () {
 }
 
 function merge_compose_file_paths_into_single_shell_script () {
+    local COMPOSE_FILES=( $@ )
     if [ ! -f "$OUTPUT_FILE_PATH" ]; then
         create_compose_file
         if [ $? -ne 0 ]; then
@@ -146,7 +147,7 @@ function extract_compose_file_paths_from_compose_directory_set () {
             echo "[ WARNING ]: Invalid path ($dir_path), directory not found."
             continue
         fi
-        COMPOSE_FILES=( ${COMPOSE_FILES[@]} "`find $dir_path -type -f | grep '.sh$'`" )
+        COMPOSE_FILES=( ${COMPOSE_FILES[@]} "`find $dir_path -type f | grep '.sh$'`" )
     done
     echo ${COMPOSE_FILES[@]}
     return $?
@@ -201,8 +202,8 @@ function action_compile () {
 }
 
 function action_compose () {
-    extract_compose_file_paths_from_compose_directory_set &> /dev/null
-    merge_compose_file_paths_into_single_shell_script
+    merge_compose_file_paths_into_single_shell_script \
+        `extract_compose_file_paths_from_compose_directory_set`
     return $?
 }
 

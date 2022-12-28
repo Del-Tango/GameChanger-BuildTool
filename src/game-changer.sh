@@ -331,8 +331,8 @@ function display_header () {
     ___________________________________________________________________________
 
      *            *           *     Game Changer    *           *            *
-    _______________________________________________________v.${VERSION}___________
-                        Regards, the Alveare Solutions society.
+    _______________________________________________________v.${VERSION_NO}${VERSION}________
+               Excellent Regards, the Alveare Solutions #!/Society -x
     "
 }
 

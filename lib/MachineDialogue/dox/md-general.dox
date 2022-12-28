@@ -43,5 +43,11 @@ shred_directory                                 <dir-path>
 shred_file                                      <file-path>
 update_pip3_dependencies                        <item1> <item2> ...
 update_pip_dependencies                         <item1> <item2> ...
+flowctrl_start                                  <json-sketch-file> <daemon-flag values(0|1)>
+flowctrl_pause
+flowctrl_resume
+flowctrl_stop
+flowctrl_purge
+
 
 EOF

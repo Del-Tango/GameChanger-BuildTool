@@ -69,7 +69,8 @@ function display_settings () {
 
 function display_available_wireless_access_points () {
     AVAILABLE_ESSID=`${MD_CARGO['wifi-commander']} \
-        "$CONF_FILE_PATH" --show-ssid | sed 's/\"//g'`
+        "$CONF_FILE_PATH" '--show-ssid' 2> /dev/null | \
+        sed 's/\"//g' 2> /dev/null`
     EXIT_CODE=$?
     echo "
 ${CYAN}Wireless Network Access Points${RESET}

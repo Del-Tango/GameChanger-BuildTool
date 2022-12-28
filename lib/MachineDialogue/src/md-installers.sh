@@ -8,7 +8,7 @@ function apt_install_dependency() {
     local UTIL="$1"
     symbol_msg "${GREEN}+${RESET}" \
         "Installing package ${YELLOW}$UTIL${RESET}..."
-    apt-get install $UTIL
+    apt-get install $UTIL -y
     return $?
 }
 
@@ -26,7 +26,7 @@ function pip_install_dependency () {
     check_python_library_installed "$LIBRARY"
     symbol_msg "${GREEN}+${RESET}" \
         "Installing library ${YELLOW}$LIBRARY${RESET}..."
-    pip install $LIBRARY
+    pip install $LIBRARY -y
     return $?
 }
 

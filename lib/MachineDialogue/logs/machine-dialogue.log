@@ -1,1 +1,24 @@
-Tue May 11 02:29:50 EEST 2021
+Thu Jun 17 21:47:08 EEST 2021
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [34mMachineDialogue[m ]: [36mLocked and Loaded![m
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded script name [32mGameChanger[m
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded prompt string ([32mGameChanger> [m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded safety flag value ([32mon[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mrelax-sec - off[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mcompose-dirs - [m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mdox-dir - /home/smx093pk01/Projects/GameChanger-BuildTool/dox[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mverbose - off[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mcompose-fls - [m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mcompose - off[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mdmp-dir - /home/smx093pk01/Projects/GameChanger-BuildTool/dump[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mtarget-file - /home/smx093pk01/Projects/GameChanger-Shell2C/dump/game-changer.sh[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mconf-dir - /home/smx093pk01/Projects/GameChanger-BuildTool/conf[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mlog-lines - 100[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mdta-dir - /home/smx093pk01/Projects/GameChanger-BuildTool/data[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mexp-msg - Your[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mlib-dir - /home/smx093pk01/Projects/GameChanger-BuildTool/lib[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mlog-dir - /home/smx093pk01/Projects/GameChanger-BuildTool/logs[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mhardened - off[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mtimestamp-format - %d/%m/%Y-%H:%M:%S[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32mbusybox - off[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32msrc-dir - /home/smx093pk01/Projects/GameChanger-BuildTool/src[m).
+[35mWed Dec 28 12:01:41 AM EST 2022[m - [ [32mOK[m ]: Successfully loaded [34mGameChanger[m default setting ([32msetuid - on[m).

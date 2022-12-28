@@ -329,7 +329,7 @@ function action_set_build_for_busybox () {
 
 function action_project_self_destruct () {
     echo; info_msg "You are about to delete all (${RED}$SCRIPT_NAME${RESET})"\
-        "project files from directory (${RED}$MD_DEFAULT['project-path']${RESET})."
+        "project files from directory (${RED}${MD_DEFAULT['project-path']}${RESET})."
     fetch_ultimatum_from_user "${YELLOW}Are you sure about this? Y/N${RESET}"
     if [ $? -ne 0 ]; then
         echo; info_msg "Aborting action."
